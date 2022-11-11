@@ -1,28 +1,52 @@
 #include<iostream>
+#include<math.h>
 using namespace std;
 
-int hammingWeight(uint32_t n){
-    int count = 0;
 
-    while(n!=0){
-        int bit = (n&1);
-        if (bit==1){
-            count += 1;
+
+int decimalTobinary(int number)
+{
+
+    int answer = 0;
+    int i = 0;
+    bool ifOne = false;
+
+    while (number != 0)
+    {
+        int bit = (number & 1);
+        
+        if(bit == 1 and ifOne == false){
+            answer = (bit * pow(10, i)) + answer;
+            ifOne = true;
         }
-        n >> 1;
-    }
 
+        else if(ifOne == true){
+            if (bit == 0){
+                bit = 1;
+                answer = (bit * pow(10, i)) + answer;
+            } else{
+                bit = 0;
+            answer = (bit * pow(10, i)) + answer;
+            }
+        }
+
+        else{
+            answer = (bit * pow(10, i)) + answer;
+        }
+
+        number = (number >> 1);
+        i++;
+    }
+    return answer;
 }
 
 int main(){
 
-/*
-    uint32_t bit = 00000000000000000000000000001011;
+    int onescomp = 10;
 
-    int ans = hammingWeight(bit);
+    int twoscomp = decimalTobinary(onescomp);
 
-    cout<<ans;
-    */
+    cout << twoscomp;
 
-   cout << (32&1);
+
 }

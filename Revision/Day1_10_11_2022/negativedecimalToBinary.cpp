@@ -1,15 +1,43 @@
-#include<iostream>
-#include<math.h>
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include <math.h>
 using namespace std;
 
-int decimalToBinary(int number){
+int twoscomplement(int number)
+{
 
     int answer = 0;
     int i = 0;
+    bool ifOne = false;
 
-    while(number !=0 ){
-        int bit = (number&1);
-        answer = (bit*pow(10,i)) + answer;
+    while (number != 0)
+    {
+        int bit = (number & 1);
+
+        if (bit == 1 and ifOne == false)
+        {
+            answer = (bit * pow(10, i)) + answer;
+            ifOne = true;
+        }
+
+        else if (ifOne == true)
+        {
+            if (bit == 0)
+            {
+                bit = 1;
+                answer = (bit * pow(10, i)) + answer;
+            }
+            else
+            {
+                bit = 0;
+                answer = (bit * pow(10, i)) + answer;
+            }
+        }
+
+        else
+        {
+            answer = (bit * pow(10, i)) + answer;
+        }
 
         number = (number >> 1);
         i++;
@@ -17,45 +45,12 @@ int decimalToBinary(int number){
     return answer;
 }
 
+int main()
+{
 
-int onsscompliment(int binary){
-    int ans = 0;
-    int i = 0;
-    while (binary != 0){
-        int bit = binary&1;
-        if(bit == 0){
-            bit = 1;
-            ans = (bit*pow(10,i)) + ans;
-        } else{
-            bit = 0;
-            ans = (bit*pow(10,i)) + ans;
-        }
+    int onescomp = 12;
 
-        binary = binary >> 1;
-        i++;
-    }
+    int twoscomp = twoscomplement(onescomp);
 
-int twos = ans;
-
-if(twos&1 == 1){
-    
-}
-
-}
-
-
-
-
-
-int main(){
-
-    int num = 8;
-
-    int binary = decimalToBinary(num);
-
-    int negative = onsscompliment(binary);
-
-    cout << binary << endl;
-    cout << negative << endl;
-
+    cout << twoscomp;
 }

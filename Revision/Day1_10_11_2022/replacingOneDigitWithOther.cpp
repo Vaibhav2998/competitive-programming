@@ -24,9 +24,9 @@ int replacingFunction(int number, int replacethis, int replacewiwth){
 
 int main(){
 
-    int number = 546;
+    int number = 0011;
 
-    int replacing = replacingFunction(number, 5, 9);
+    int replacing = replacingFunction(number, 1, 0);
 
     cout<< replacing;
 
