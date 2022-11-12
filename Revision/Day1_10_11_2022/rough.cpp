@@ -3,50 +3,19 @@
 using namespace std;
 
 
+int main() {
 
-int decimalTobinary(int number)
-{
+    int ans = 0;
+    int x = -123;
 
-    int answer = 0;
-    int i = 0;
-    bool ifOne = false;
-
-    while (number != 0)
-    {
-        int bit = (number & 1);
-        
-        if(bit == 1 and ifOne == false){
-            answer = (bit * pow(10, i)) + answer;
-            ifOne = true;
+    while(x!=0){
+        int digit = x % 10;
+        if((ans < INT64_MIN/10) || (ans> INT64_MAX/10)){
+            return 0;
         }
-
-        else if(ifOne == true){
-            if (bit == 0){
-                bit = 1;
-                answer = (bit * pow(10, i)) + answer;
-            } else{
-                bit = 0;
-            answer = (bit * pow(10, i)) + answer;
-            }
-        }
-
-        else{
-            answer = (bit * pow(10, i)) + answer;
-        }
-
-        number = (number >> 1);
-        i++;
+        ans = (10 * ans) + digit;
+        x = x / 10;
     }
-    return answer;
-}
 
-int main(){
-
-    int onescomp = 10;
-
-    int twoscomp = decimalTobinary(onescomp);
-
-    cout << twoscomp;
-
-
+    cout << ans;
 }
