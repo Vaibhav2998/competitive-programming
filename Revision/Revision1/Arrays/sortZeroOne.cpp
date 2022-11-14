@@ -1,43 +1,54 @@
 #include<iostream>
-#include<vector>
+#include <bits/stdc++.h> 
 using namespace std;
 
-void sortZeroOne(vector<int> arr) {
-    int i = 0;
-    int j = arr.size() -1;
+void sortZeroOne(int arr[], int size){
 
-    while(i<j){
+    int start = 0;
+    int end = size-1;
+
+    while(start<end){
+
+        if(arr[start] == 1 && arr[end] == 0){
+            swap(arr[start], arr[end]);
+            start++;
+            end--;
+        }
+
+        else if(arr[start] == 0 && arr[end] == 1){
+            start++;
+            end--;
+        }
+
+        else if(arr[start] == 0 && arr[end] == 0){
+            start++;
+        }
+        else if(arr[start] == 1 && arr[end] == 1){
+            end--;
+        }
         
-        if (arr[i] == 1 && arr[j] == 0){
-            swap(arr[i], arr[j]);
-            i++;
-            j--;
-        }
-        else if(arr[i] == 1 && arr[j] == 1 ){
-            j--;
-        } else if(arr[i] == 0 && arr[j] == 0){
-            i++;
-        } else if(arr[i] == 0 && arr[j] == 1){
-            i++;
-            j--;
-        }
     }
 }
 
-void printArray(vector<int> arr){
+void printArray(int arr[], int size){
 
-    for(int i=0; i<arr.size();i++){
+    for(int i=0;i<size;i++){
         cout<< arr[i] << " ";
     }
-    cout << endl;
+
+    cout<< endl;
 }
+
 
 int main() {
 
-    vector<int> arr = {0,1,1,0,0,1};
 
-    sortZeroOne(arr);
+    int arr[8] = {1,1,1,1,0,0,1,0};
 
-    printArray(arr);
+    printArray(arr,8);
+
+    sortZeroOne(arr,8);
+
+    printArray(arr,8);
 
 }
