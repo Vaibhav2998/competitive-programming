@@ -64,6 +64,7 @@ int binarySearch(int arr[], int size, int student)
 int main()
 {
 
+    cout << "Book Allocation Problem" << endl;
     int book[4] = {10, 20, 30, 40};
     int book2[4] = {5, 17, 100, 11};
     int book3[5] = {25, 46, 28, 49, 24};
