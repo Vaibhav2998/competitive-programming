@@ -17,6 +17,7 @@ bool searchArr(int arr[], int size, int key){
 int main(){
 
   int arr[6] = {1,2,3,4,5,6};
+  cout<< "Linear search" << endl;
 
   bool ifFound = searchArr(arr,6,15);
 

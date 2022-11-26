@@ -33,6 +33,7 @@ void printArray(int arr[], int size)
 
 int main()
 {
+    cout << "Bubble Sorting" << endl;
 
     int arr[5] = {2, 1, 5, 4, 0};
 
