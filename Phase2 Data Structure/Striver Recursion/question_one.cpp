@@ -1,17 +1,19 @@
 #include<iostream>
 using namespace std;
 
-int count = 0;
-
-void printname() {
-  if(count == 5){
+void printName(int i,int n) {
+  if (i>n){
     return;
   }
-  count++;
-  cout << count << ". Vaibhav" << endl;
-  printname();
+
+  cout << "Vaibhav" << endl;
+  printName(i+1,n);
 }
 
 int main() {
-  printname();
+
+  int n;
+  cout << "Number of times you want to prit name: " << endl;
+  cin >> n;
+  printName(1,n);
 }
