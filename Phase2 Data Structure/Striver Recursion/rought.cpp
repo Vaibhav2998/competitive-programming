@@ -1,7 +1,9 @@
 #include<iostream>
 #include<vector>
+#include <algorithm>
 using namespace std;
 
+/*
     void solve(vector<int>& candidates, int target, int index, vector<int> &ds,vector< vector <int>> &ans){
         
         if(index == candidates.size()){
@@ -24,13 +26,24 @@ using namespace std;
 
         solve(candidates, target, index+1, ds, ans);
     }
-
+*/
 int main() {
 
-        vector<int> candidates = {2,3,6,7};
-        int target = 7;
-        vector<int> ds;
-        vector< vector <int>> ans;
-        solve(candidates, target, 0, ds, ans);
+    vector< vector<int>> ans = {{1,2,5}, {1,7}, {7,1}};
+
+    for(int i=0; i<ans.size() ;i++){
+        for(int j=0; j<ans[i].size(); j++){
+            cout << ans[i][j] << " ";
+        } cout << endl;
+    }
+
+    sort(ans[0].begin(), ans[0].end());
+cout << endl;cout << endl;
+
+    for(int i=0; i<ans.size() ;i++){
+        for(int j=0; j<ans[i].size(); j++){
+            cout << ans[i][j] << " ";
+        } cout << endl;
+    }
         
 }
