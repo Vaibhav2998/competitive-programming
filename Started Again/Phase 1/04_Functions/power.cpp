@@ -14,4 +14,6 @@ int main() {
   int b = 4;
 
   power(a,b);
+
+  return 0;
 }
